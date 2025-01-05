@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Quest System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-blue: #00a8ff;
+            --dark-blue: #1a1a2e;
+            --text-color: #ffffff;
+            --shadow-color: rgba(0, 168, 255, 0.3);
+            --border-glow: 0 0 10px var(--primary-blue);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a1a;
+            color: var(--text-color);
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%230a0a1a"/><path d="M0 0l100 100M100 0L0 100" stroke="%23112244" stroke-width="0.5"/></svg>');
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .quest-window {
+            background-color: rgba(26, 26, 46, 0.95);
+            border: 1px solid var(--primary-blue);
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: var(--border-glow);
+            backdrop-filter: blur(5px);
+        }
+
+        .quest-header {
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .quest-header h1 {
+            color: var(--primary-blue);
+            font-size: 2em;
+            text-shadow: 0 0 10px var(--primary-blue);
+        }
+
+        .quest-subtitle {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .quest-list {
+            list-style: none;
+        }
+
+        .quest-item {
+            background: rgba(0, 0, 0, 0.3);
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 3px solid var(--primary-blue);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .quest-item:hover {
+            background: rgba(0, 168, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .quest-name {
+            flex-grow: 1;
+        }
+
+        .quest-progress {
+            margin-right: 15px;
+            color: var(--primary-blue);
+        }
+
+        .quest-complete-btn {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+        .quest-complete-btn:hover {
+            background: var(--primary-blue);
+            color: #fff;
+            box-shadow: 0 0 15px var(--primary-blue);
+        }
+
+        .quest-complete-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .timer {
+            text-align: center;
+            font-size: 2em;
+            color: var(--primary-blue);
+            margin: 20px 0;
+            text-shadow: 0 0 10px var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .warning {
+            color: #ff3e3e;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        #completion-message {
+            color: #4CAF50;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            display: none; /* Por defecto está oculto */
+        }
+
+        .rewards-preview {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .rewards-btn {
+            background: transparent;
+            color: #ffd700;
+            border: 1px solid #ffd700;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rewards-btn:hover {
+            background: #ffd700;
+            color: #000;
+            box-shadow: 0 0 15px #ffd700;
+        }
+
+        .completed {
+            border-left-color: #4CAF50;
+        }
+
+        .completed .quest-progress,
+        .completed .quest-complete-btn {
+            color: #4CAF50;
+            border-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quest-window">
+            <div class="quest-header">
+                <h1>Quest Info</h1>
+                <div class="quest-subtitle">[Daily Quest: Player Training has arrived]</div>
+            </div>
+
+            <ul class="quest-list" id="quest-list">
+                <!-- Las misiones se generarán dinámicamente aquí -->
+            </ul>
+
+            <div class="timer" id="timer">07:09:07</div>
+
+            <div class="warning">
+                WARNING: Failure to complete the daily quest will result in an appropriate penalty.
+            </div>
+
+            <div id="completion-message">
+                ✨ Todas las misiones del día han sido completadas. ¡Buen trabajo! ✨
+            </div>
+
+            <div class="rewards-preview">
+                <button class="rewards-btn">
+                    📦 Preview Rewards
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+// Obtener misiones diarias desde el almacenamiento local o desde el archivo JSON
+async function fetchDailyMissions() {
+    try {
+        const savedMissions = localStorage.getItem('missions');
+        if (savedMissions) {
+            return { missions: JSON.parse(savedMissions) };  // Usar las misiones almacenadas
+        }
+
+        // Si no hay misiones en localStorage, obtenerlas del archivo JSON
+        const response = await fetch("missions-data.json");
+        if (!response.ok) {
+            throw new Error(`Error al obtener el archivo JSON: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Error al cargar las misiones:", error);
+        alert("Hubo un error al cargar las misiones. Inténtalo de nuevo.");
+        return null;
+    }
+}
+
+// Renderizar misiones diarias
+async function renderDailyMissions() {
+    const data = await fetchDailyMissions();
+
+    if (!data || !data.missions) {
+        console.error("No se encontraron misiones.");
+        return;
+    }
+
+    const questList = document.getElementById("quest-list");
+    questList.innerHTML = ""; // Limpiar la lista actual
+
+    // Si todas las misiones están completadas
+    if (data.missions.every(m => m.completed)) {
+        questList.innerHTML = `<li style="text-align:center;">✨ Todas las misiones del día han sido completadas. ¡Buen trabajo! ✨</li>`;
+    } else {
+        // Renderizar las misiones activas
+        data.missions.forEach((mission) => {
+            const li = document.createElement("li");
+            li.className = `quest-item ${mission.completed ? "completed" : ""}`;
+            li.innerHTML = `
+                <span class="quest-name">${mission.name}</span>
+                <button 
+                    class="quest-complete-btn"
+                    onclick="completeMission(${mission.id})"
+                    ${mission.completed ? "disabled" : ""}
+                >
+                    ${mission.completed ? "Completada" : "Completar"}
+                </button>
+            `;
+            questList.appendChild(li);
+        });
+    }
+}
+
+// Función para completar la misión
+async function completeMission(missionId) {
+    try {
+        // Obtener las misiones desde el archivo o localStorage
+        const data = await fetchDailyMissions();
+        if (!data) {
+            console.error("No se pudieron obtener las misiones.");
+            return;
+        }
+
+        // Buscar la misión con el ID correspondiente
+        const mission = data.missions.find(m => m.id === missionId);
+        if (!mission) {
+            console.error("Misión no encontrada.");
+            return;
+        }
+
+        // Marcar la misión como completada
+        if (!mission.completed) {
+            mission.completed = true;  // Marcar como completada
+
+            // Actualizar el almacenamiento local para mantener el estado
+            localStorage.setItem('missions', JSON.stringify(data.missions));
+
+            alert(`¡Misión completada! Has ganado ${mission.xp} XP`);
+        }
+
+        // Actualizar la interfaz con las misiones actualizadas
+        renderDailyMissions();
+
+    } catch (error) {
+        console.error("Error al completar la misión:", error);
+        alert("Hubo un error al completar la misión. Inténtalo de nuevo.");
+    }
+}
+
+// Temporizador de 24 horas (se reinicia a las 10:00 PM)
+function updateTimer() {
+    const now = new Date();
+    const resetHour = 22;  // 10:00 PM
+
+    const resetTime = new Date(now);
+    resetTime.setHours(resetHour, 0, 0, 0); // Establecer el tiempo de reinicio a las 10:00 PM
+
+    if (now >= resetTime) {
+        resetTime.setDate(resetTime.getDate() + 1);  // Si ya pasó la hora, establecer para el día siguiente
+    }
+
+    const diff = resetTime - now;
+    const hours = Math.floor(diff / 3600000).toString().padStart(2, "0");
+    const minutes = Math.floor((diff % 3600000) / 60000).toString().padStart(2, "0");
+    const seconds = Math.floor((diff % 60000) / 1000).toString().padStart(2, "0");
+
+    document.getElementById("timer").textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+// Inicialización
+renderDailyMissions();
+setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

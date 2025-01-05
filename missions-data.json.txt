@@ -1,0 +1,657 @@
+{
+  "missions": [
+    {
+      "id": 1,
+      "type": "physical",
+      "name": "Flexiones",
+      "description": "Haz {goal} flexiones",
+      "baseGoal": 15,
+      "unit": "repeticiones",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 2,
+      "type": "physical",
+      "name": "Correr",
+      "description": "Corre {goal} kilómetros",
+      "baseGoal": 2,
+      "unit": "km",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 3,
+      "type": "study",
+      "name": "Lectura",
+      "description": "Lee {goal} páginas de cualquier libro",
+      "baseGoal": 20,
+      "unit": "páginas",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 4,
+      "type": "physical",
+      "name": "Sentadillas",
+      "description": "Haz {goal} sentadillas",
+      "baseGoal": 20,
+      "unit": "repeticiones",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 5,
+      "type": "physical",
+      "name": "Plancha",
+      "description": "Mantén la posición de plancha durante {goal} minutos",
+      "baseGoal": 2,
+      "unit": "minutos",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 6,
+      "type": "study",
+      "name": "Aprendizaje de Idiomas",
+      "description": "Estudia un idioma durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 7,
+      "type": "health",
+      "name": "Horario de Sueño",
+      "description": "Ve a dormir antes de las {goal}",
+      "baseGoal": "23:00",
+      "unit": "hora",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 8,
+      "type": "health",
+      "name": "Ingesta de Agua",
+      "description": "Bebe {goal} vasos de agua",
+      "baseGoal": 8,
+      "unit": "vasos",
+      "difficulty": "easy",
+      "xp": 80
+    },
+    {
+      "id": 9,
+      "type": "study",
+      "name": "Práctica de Programación",
+      "description": "Programa durante {goal} minutos",
+      "baseGoal": 45,
+      "unit": "minutos",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 10,
+      "type": "physical",
+      "name": "Caminata",
+      "description": "Camina durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "easy",
+      "xp": 80
+    },
+    {
+      "id": 11,
+      "type": "social",
+      "name": "Hablar con un extraño",
+      "description": "Mantén una conversación de 10 minutos con un extraño",
+      "baseGoal": 10,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 12,
+      "type": "emotional",
+      "name": "Meditación de Atención Plena",
+      "description": "Practica meditación de atención plena durante {goal} minutos",
+      "baseGoal": 15,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 13,
+      "type": "study",
+      "name": "Aprender una nueva habilidad",
+      "description": "Dedica {goal} minutos a aprender una nueva habilidad",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 150
+    },
+    {
+      "id": 14,
+      "type": "physical",
+      "name": "Yoga",
+      "description": "Haz una sesión de yoga de 30 minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 15,
+      "type": "health",
+      "name": "Comer Saludable",
+      "description": "Come una comida balanceada y saludable",
+      "baseGoal": 1,
+      "unit": "comida",
+      "difficulty": "easy",
+      "xp": 80
+    },
+    {
+      "id": 16,
+      "type": "physical",
+      "name": "Desafío de Flexiones",
+      "description": "Haz {goal} flexiones en una sola serie",
+      "baseGoal": 30,
+      "unit": "repeticiones",
+      "difficulty": "hard",
+      "xp": 200
+    },
+    {
+      "id": 17,
+      "type": "study",
+      "name": "Escribir un Artículo",
+      "description": "Escribe un artículo de {goal} palabras",
+      "baseGoal": 500,
+      "unit": "palabras",
+      "difficulty": "hard",
+      "xp": 200
+    },
+    {
+      "id": 18,
+      "type": "study",
+      "name": "Lectura Rápida",
+      "description": "Lee {goal} páginas en 20 minutos",
+      "baseGoal": 40,
+      "unit": "páginas",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 19,
+      "type": "emotional",
+      "name": "Escribir en el Diario",
+      "description": "Escribe en tu diario durante {goal} minutos",
+      "baseGoal": 15,
+      "unit": "minutos",
+      "difficulty": "easy",
+      "xp": 80
+    },
+    {
+      "id": 20,
+      "type": "health",
+      "name": "Pasos Diarios",
+      "description": "Camina al menos {goal} pasos hoy",
+      "baseGoal": 10000,
+      "unit": "pasos",
+      "difficulty": "easy",
+      "xp": 100
+    },
+    {
+      "id": 21,
+      "type": "health",
+      "name": "Estiramientos",
+      "description": "Haz estiramientos durante {goal} minutos",
+      "baseGoal": 15,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 90
+    },
+    {
+      "id": 22,
+      "type": "study",
+      "name": "Aprender un Lenguaje de Programación",
+      "description": "Aprende {goal} sintaxis en un nuevo lenguaje de programación",
+      "baseGoal": 5,
+      "unit": "comandos",
+      "difficulty": "hard",
+      "xp": 180
+    },
+    {
+      "id": 23,
+      "type": "social",
+      "name": "Halagar a Alguien",
+      "description": "Hazle un halago genuino a alguien",
+      "baseGoal": 1,
+      "unit": "halago",
+      "difficulty": "easy",
+      "xp": 60
+    },
+    {
+      "id": 24,
+      "type": "emotional",
+      "name": "Práctica de Gratitud",
+      "description": "Escribe {goal} cosas por las que estás agradecido",
+      "baseGoal": 3,
+      "unit": "cosas",
+      "difficulty": "easy",
+      "xp": 80
+    },
+    {
+      "id": 25,
+      "type": "study",
+      "name": "Ver una Charla TED",
+      "description": "Mira una charla TED durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 26,
+      "type": "study",
+      "name": "Crear un Proyecto Personal",
+      "description": "Comienza a trabajar en un proyecto personal durante {goal} minutos",
+      "baseGoal": 60,
+      "unit": "minutos",
+      "difficulty": "hard",
+      "xp": 200
+    },
+    {
+      "id": 27,
+      "type": "social",
+      "name": "Hacer un Nuevo Amigo",
+      "description": "Inicia una conversación con una nueva persona",
+      "baseGoal": 1,
+      "unit": "conversación",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 28,
+      "type": "physical",
+      "name": "Saltar la Cuerda",
+      "description": "Salta la cuerda durante {goal} minutos",
+      "baseGoal": 15,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 29,
+      "type": "study",
+      "name": "Tomar un Curso en Línea",
+      "description": "Completa un curso en línea durante {goal} minutos",
+      "baseGoal": 45,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 30,
+      "type": "emotional",
+      "name": "Escribir una Carta de Motivación",
+      "description": "Escribe una carta de motivación para ti mismo",
+      "baseGoal": 1,
+      "unit": "carta",
+      "difficulty": "medium",
+      "xp": 150 
+   
+    },
+
+    {
+      "id": 31,
+      "type": "creative",
+      "name": "Dibujo Diario",
+      "description": "Dedica {goal} minutos a dibujar o hacer bocetos",
+      "baseGoal": 20,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 32,
+      "type": "professional",
+      "name": "Networking Profesional",
+      "description": "Conecta con {goal} profesionales en LinkedIn",
+      "baseGoal": 3,
+      "unit": "conexiones",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 33,
+      "type": "emotional",
+      "name": "Técnicas de Respiración",
+      "description": "Practica ejercicios de respiración durante {goal} minutos",
+      "baseGoal": 10,
+      "unit": "minutos",
+      "difficulty": "easy",
+      "xp": 80
+    },
+    {
+      "id": 34,
+      "type": "creative",
+      "name": "Música",
+      "description": "Practica un instrumento musical durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 35,
+      "type": "professional",
+      "name": "Actualización de CV",
+      "description": "Dedica {goal} minutos a actualizar tu CV",
+      "baseGoal": 45,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 130
+    },
+    {
+      "id": 36,
+      "type": "study",
+      "name": "Podcast Educativo",
+      "description": "Escucha un podcast educativo durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "easy",
+      "xp": 90
+    },
+    {
+      "id": 37,
+      "type": "financial",
+      "name": "Presupuesto Personal",
+      "description": "Revisa y actualiza tu presupuesto durante {goal} minutos",
+      "baseGoal": 20,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 110
+    },
+    {
+      "id": 38,
+      "type": "creative",
+      "name": "Escritura Creativa",
+      "description": "Escribe una historia corta de {goal} palabras",
+      "baseGoal": 300,
+      "unit": "palabras",
+      "difficulty": "medium",
+      "xp": 140
+    },
+    {
+      "id": 39,
+      "type": "professional",
+      "name": "Lectura de Noticias del Sector",
+      "description": "Lee noticias de tu sector profesional durante {goal} minutos",
+      "baseGoal": 15,
+      "unit": "minutos",
+      "difficulty": "easy",
+      "xp": 80
+    },
+    {
+      "id": 40,
+      "type": "health",
+      "name": "Desintoxicación Digital",
+      "description": "Abstente de redes sociales durante {goal} horas",
+      "baseGoal": 4,
+      "unit": "horas",
+      "difficulty": "hard",
+      "xp": 160
+    },
+    {
+      "id": 41,
+      "type": "social",
+      "name": "Voluntariado",
+      "description": "Dedica {goal} horas a una actividad de voluntariado",
+      "baseGoal": 2,
+      "unit": "horas",
+      "difficulty": "hard",
+      "xp": 200
+    },
+    {
+      "id": 42,
+      "type": "financial",
+      "name": "Ahorro Diario",
+      "description": "Ahorra {goal} euros hoy",
+      "baseGoal": 5,
+      "unit": "euros",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 43,
+      "type": "creative",
+      "name": "Fotografía",
+      "description": "Toma {goal} fotos artísticas",
+      "baseGoal": 5,
+      "unit": "fotos",
+      "difficulty": "medium",
+      "xp": 110
+    },
+    {
+      "id": 44,
+      "type": "professional",
+      "name": "Proyecto Lateral",
+      "description": "Trabaja en un proyecto personal durante {goal} minutos",
+      "baseGoal": 45,
+      "unit": "minutos",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 45,
+      "type": "emotional",
+      "name": "Autocompasión",
+      "description": "Practica ejercicios de autocompasión durante {goal} minutos",
+      "baseGoal": 15,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 46,
+      "type": "social",
+      "name": "Llamada Familiar",
+      "description": "Llama a un familiar durante {goal} minutos",
+      "baseGoal": 20,
+      "unit": "minutos",
+      "difficulty": "easy",
+      "xp": 90
+    },
+    {
+      "id": 47,
+      "type": "professional",
+      "name": "Gestión del Tiempo",
+      "description": "Planifica tu semana durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 48,
+      "type": "creative",
+      "name": "Cocina Creativa",
+      "description": "Prepara una nueva receta durante {goal} minutos",
+      "baseGoal": 45,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 130
+    },
+    {
+      "id": 49,
+      "type": "emotional",
+      "name": "Reflexión Personal",
+      "description": "Reflexiona sobre tus metas durante {goal} minutos",
+      "baseGoal": 20,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 110
+    },
+    {
+      "id": 50,
+      "type": "professional",
+      "name": "Mentorías",
+      "description": "Busca o proporciona mentoría durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "hard",
+      "xp": 160
+},
+
+{
+      "id": 51,
+      "type": "social",
+      "name": "Contacto Visual",
+      "description": "Mantén contacto visual consciente con {goal} personas diferentes",
+      "baseGoal": 10,
+      "unit": "personas",
+      "difficulty": "medium",
+      "xp": 100
+    },
+    {
+      "id": 52,
+      "type": "social",
+      "name": "Lenguaje Corporal",
+      "description": "Practica postura abierta y confiada durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 53,
+      "type": "social",
+      "name": "Iniciador de Conversaciones",
+      "description": "Inicia conversaciones casuales con {goal} personas nuevas",
+      "baseGoal": 3,
+      "unit": "conversaciones",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 54,
+      "type": "personal",
+      "name": "Estilo Personal",
+      "description": "Dedica {goal} minutos a mejorar tu imagen personal",
+      "baseGoal": 45,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 55,
+      "type": "social",
+      "name": "Escucha Activa",
+      "description": "Practica escucha activa en {goal} conversaciones distintas",
+      "baseGoal": 3,
+      "unit": "conversaciones",
+      "difficulty": "medium",
+      "xp": 130
+    },
+    {
+      "id": 56,
+      "type": "personal",
+      "name": "Desarrollo de Pasiones",
+      "description": "Dedica {goal} minutos a desarrollar un hobby o pasión",
+      "baseGoal": 60,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 140
+    },
+    {
+      "id": 57,
+      "type": "social",
+      "name": "Historias Personales",
+      "description": "Practica contar {goal} historias personales interesantes",
+      "baseGoal": 3,
+      "unit": "historias",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 58,
+      "type": "social",
+      "name": "Salida Social",
+      "description": "Asiste a un evento social durante {goal} horas",
+      "baseGoal": 2,
+      "unit": "horas",
+      "difficulty": "hard",
+      "xp": 160
+    },
+    {
+      "id": 59,
+      "type": "personal",
+      "name": "Superación de Miedos",
+      "description": "Enfrenta {goal} situaciones que te generen ansiedad social",
+      "baseGoal": 1,
+      "unit": "situaciones",
+      "difficulty": "hard",
+      "xp": 180
+    },
+    {
+      "id": 60,
+      "type": "social",
+      "name": "Habilidades de Flirteo",
+      "description": "Practica interacciones sociales juguetonas con {goal} personas",
+      "baseGoal": 2,
+      "unit": "interacciones",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 61,
+      "type": "personal",
+      "name": "Desarrollo de Carisma",
+      "description": "Lee sobre desarrollo de carisma durante {goal} minutos",
+      "baseGoal": 30,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 120
+    },
+    {
+      "id": 62,
+      "type": "social",
+      "name": "Círculo Social",
+      "description": "Expande tu círculo social conociendo {goal} personas nuevas",
+      "baseGoal": 2,
+      "unit": "personas",
+      "difficulty": "medium",
+      "xp": 140
+    },
+    {
+      "id": 63,
+      "type": "personal",
+      "name": "Confianza Vocal",
+      "description": "Practica modulación y proyección de voz durante {goal} minutos",
+      "baseGoal": 15,
+      "unit": "minutos",
+      "difficulty": "medium",
+      "xp": 110
+    },
+    {
+      "id": 64,
+      "type": "social",
+      "name": "Lugares Sociales",
+      "description": "Visita {goal} lugares nuevos donde socializar",
+      "baseGoal": 1,
+      "unit": "lugares",
+      "difficulty": "hard",
+      "xp": 150
+    },
+    {
+      "id": 65,
+      "type": "personal",
+      "name": "Desarrollo de Humor",
+      "description": "Practica contar {goal} historias divertidas",
+      "baseGoal": 2,
+      "unit": "historias",
+      "difficulty": "medium",
+      "xp": 120
+    }
+  ]
+}
